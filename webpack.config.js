@@ -5,7 +5,7 @@ var AssetsPlugin = require('assets-webpack-plugin');
 var config = {
   devtool: 'source-map',
   entry: {
-    webpack: ['./src/index.js']
+    app: ['./src/index.js']
   },
   output: {
     filename: '[name]-[hash].bundle.js',
