@@ -61,5 +61,5 @@ node_modules/
 
 npm-debug.log
 
-# dotnev
-.env
+# Ignore application configuration
+/config/application.yml

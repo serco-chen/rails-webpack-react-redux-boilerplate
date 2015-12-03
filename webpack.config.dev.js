@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var config = {
   devtool: 'eval',
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
     './src/index.js'
   ],
   output: {

@@ -4,7 +4,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-set :deploy_to, "/var/www/app"
+set :deploy_to, "/var/www/#{ENV['app_name']}"
 set :branch, "master"
 set :rails_env, "production"
 server 'server-ip', user: 'deploy', roles: %w{web app db}

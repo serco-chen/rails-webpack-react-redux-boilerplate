@@ -2,12 +2,15 @@
 <html>
 <head>
   <title>RailsWebpackReactReduxBoilerplate</title>
-  <%= webpack_bundle_tag 'app' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id='app'></div>
+  <%= yield %>
 
-<%= yield %>
-
+  <script>
+    window.__INITIAL_STATE__ = <%= @initial_state %>;
+  </script>
+  <%= webpack_bundle_tag 'app' %>
 </body>
 </html>

@@ -1,5 +1,5 @@
-set :application, 'app_name'
-set :repo_url, 'git@github.com:serco-chen/app-name.git'
+set :application, ENV['app_name']
+set :repo_url, "git@github.com:serco-chen/#{ENV['app_name']}.git"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -20,7 +20,7 @@ set :repo_url, 'git@github.com:serco-chen/app-name.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/application.yml')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle')
