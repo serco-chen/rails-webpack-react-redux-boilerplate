@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var AssetsPlugin = require('assets-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   devtool: 'source-map',
@@ -8,26 +8,23 @@ var config = {
     app: ['./src/index.js']
   },
   output: {
+    path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].bundle.js',
-    path: path.join(__dirname, './public/assets/'),
     publicPath: '/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new AssetsPlugin({
-      filename: 'webpack-assets.json',
-      path: path.join(__dirname, 'public', 'assets')
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
       }
-    })
+    }),
+    new HtmlWebpackPlugin()
   ],
   module: {
     loaders: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'client') }
+      { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src') }
     ]
   }
 };

@@ -13,6 +13,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + '/index.html')
+})
+
 app.listen(8080, 'localhost', function(err) {
   if (err) {
     console.log(err);
